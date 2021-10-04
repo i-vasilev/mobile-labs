@@ -1,0 +1,5 @@
+package ru.vasilev.labs.logger
+
+enum class EventType {
+    ON_CREATE, ON_RESTORE_INSTANCE_STATE, ON_RESTART, ON_START, ON_RESUME, ON_SAVE_INSTANCE_STATE, ON_PAUSE, ON_STOP, ON_DESTROY,
+}
