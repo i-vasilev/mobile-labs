@@ -6,6 +6,7 @@ import ru.vasilev.labs.utils.converter.units.Unit;
 public class UnitConverter {
     private Unit unitFrom;
     private Unit unitTo;
+    private static UnitConverter instance = new UnitConverter();
 
     private UnitConverter() {
     }
@@ -31,6 +32,6 @@ public class UnitConverter {
     }
 
     public static UnitConverter getInstance() {
-        return new UnitConverter();
+        return instance;
     }
 }

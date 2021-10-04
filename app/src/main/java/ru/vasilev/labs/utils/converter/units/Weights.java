@@ -1,15 +1,25 @@
 package ru.vasilev.labs.utils.converter.units;
 
-public enum Weights implements Unit {
-    KG(1), POUND(2.205), OUNCES(35.274), STONE(0.1574);
-    private final double value;
+import ru.vasilev.labs.utils.converter.annotations.UnitClass;
 
-    Weights(double value) {
+@UnitClass
+public enum Weights implements Unit {
+    KG(1, "килограмм"), POUND(2.205, "пуд"), OUNCES(35.274, "унц"), STONE(0.1574, "стон");
+    private final double value;
+    private final String root;
+
+    Weights(double value, String root) {
         this.value = value;
+        this.root = root;
     }
 
     @Override
     public double getValue() {
         return value;
+    }
+
+    @Override
+    public String getRoot() {
+        return root;
     }
 }

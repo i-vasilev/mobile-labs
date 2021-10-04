@@ -10,9 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import ru.vasilev.labs.R;
+import ru.vasilev.labs.exceptions.IllegalStringToParse;
 import ru.vasilev.labs.logger.Event;
 import ru.vasilev.labs.logger.EventLogger;
 import ru.vasilev.labs.logger.EventType;
+import ru.vasilev.labs.utils.parser.StringParser;
 
 public final class MainActivity extends AppCompatActivity {
 
@@ -29,6 +31,11 @@ public final class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                try {
+                    StringParser instance = StringParser.getInstance();
+                    instance.setStringToParse(charSequence.toString());
+                } catch (IllegalStringToParse illegalStringToParse) {
+                }
 
             }
 
