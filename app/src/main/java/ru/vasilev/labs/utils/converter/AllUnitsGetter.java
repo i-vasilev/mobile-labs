@@ -9,16 +9,22 @@ import java.util.Objects;
 import java.util.Set;
 
 import ru.vasilev.labs.utils.converter.annotations.UnitClass;
+import ru.vasilev.labs.utils.converter.units.Lengths;
 import ru.vasilev.labs.utils.converter.units.Unit;
+import ru.vasilev.labs.utils.converter.units.Volume;
+import ru.vasilev.labs.utils.converter.units.Weights;
 
 public class AllUnitsGetter {
 
     public static List<Unit> getAllUnitsInProject() {
         List<Unit> units = new ArrayList<>();
-        Reflections reflections = new Reflections("ru.vasilev.labs");
-        Set<Class<?>> typesAnnotatedWith = reflections.getTypesAnnotatedWith(UnitClass.class);
-        typesAnnotatedWith.forEach(a ->
-                Arrays.stream(Objects.requireNonNull(a.getEnumConstants())).forEach(unit -> units.add((Unit) unit)));
+        units.addAll(Arrays.asList(Weights.values()));
+        units.addAll(Arrays.asList(Lengths.values()));
+        units.addAll(Arrays.asList(Volume.values()));
+//        Reflections reflections = new Reflections("ru.vasilev.labs");
+//        Set<Class<?>> typesAnnotatedWith = reflections.getTypesAnnotatedWith(UnitClass.class);
+//        typesAnnotatedWith.forEach(a ->
+//                Arrays.stream(Objects.requireNonNull(a.getEnumConstants())).forEach(unit -> units.add((Unit) unit)));
         return units;
     }
 
