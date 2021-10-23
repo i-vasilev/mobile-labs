@@ -75,9 +75,11 @@ public final class MainActivity extends AppCompatActivity {
             } catch (IllegalStringToParse illegalStringToParse) {
                 TextView viewById = findViewById(R.id.resultText);
                 viewById.setText(R.string.start_string);
+                conv1.setText(getString(R.string.empty_value));
                 conv1.setEnabled(false);
+                conv2.setText(getString(R.string.empty_value));
                 conv2.setEnabled(false);
-                conv3.setText();
+                conv3.setText(getString(R.string.empty_value));
                 conv3.setEnabled(false);
             }
         }
