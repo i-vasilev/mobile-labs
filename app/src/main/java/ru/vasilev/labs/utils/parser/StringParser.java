@@ -17,7 +17,7 @@ public class StringParser {
         if (s.length == 2) {
             value = Integer.parseInt(s[0]);
             for (Unit unit :
-                    AllUnitsGetter.getAllUnitsInProject()) {
+                    AllUnitsGetter.getAllUnits()) {
                 if (s[1].matches(String.format("^%s[а-я]{0,2}$", unit.getRoot()))) {
                     unitClass = unit.getClass();
                     this.unit = unit;

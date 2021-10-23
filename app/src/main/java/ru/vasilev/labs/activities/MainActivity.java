@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,10 +25,13 @@ import ru.vasilev.labs.logger.EventLogger;
 import ru.vasilev.labs.logger.EventType;
 import ru.vasilev.labs.utils.converter.AllUnitsGetter;
 import ru.vasilev.labs.utils.converter.UnitConverter;
+import ru.vasilev.labs.utils.converter.UnitRecord;
 import ru.vasilev.labs.utils.converter.units.Unit;
 import ru.vasilev.labs.utils.parser.StringParser;
 
 public final class MainActivity extends AppCompatActivity {
+
+    private UnitRecord unitRecord;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,42 +41,7 @@ public final class MainActivity extends AppCompatActivity {
         Button conv1 = findViewById(R.id.convert_1);
         Button conv2 = findViewById(R.id.convert_2);
         Button conv3 = findViewById(R.id.convert_3);
-        editValue.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                try {
-                    StringParser instance = StringParser.getInstance();
-                    instance.setStringToParse(charSequence.toString());
-                    List<Unit> unitsByClass = AllUnitsGetter
-                            .getUnitsByClass(instance.getUnit()
-                                    .getClass())
-                            .stream()
-                            .filter(a -> !a.equals(instance.getUnit()))
-                            .collect(Collectors.toList());
-                    Button conv1 = findViewById(R.id.convert_1);
-                    conv1.setText(unitsByClass.get(0).getRoot());
-                    conv1.setEnabled(true);
-                    Button conv2 = findViewById(R.id.convert_2);
-                    conv2.setText(unitsByClass.get(1).getRoot());
-                    conv2.setEnabled(true);
-                    Button conv3 = findViewById(R.id.convert_3);
-                    conv3.setText(unitsByClass.get(2).getRoot());
-                    conv3.setEnabled(true);
-                } catch (IllegalStringToParse illegalStringToParse) {
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
+        editValue.setOnKeyListener(this::keyTextListener);
 
         conv1.setOnClickListener(this::onClickConvertBtn);
         conv2.setOnClickListener(this::onClickConvertBtn);
@@ -82,6 +51,40 @@ public final class MainActivity extends AppCompatActivity {
         EventLogger.Companion.print();
     }
 
+    private boolean keyTextListener(View view, int keyCode, KeyEvent keyEvent) {
+        if (keyEvent.getAction() == KeyEvent.ACTION_DOWN
+                && keyCode == KeyEvent.KEYCODE_ENTER) {
+            EditText editText = (EditText) view;
+            Button conv1 = findViewById(R.id.convert_1);
+            Button conv2 = findViewById(R.id.convert_2);
+            Button conv3 = findViewById(R.id.convert_3);
+            try {
+                unitRecord = new UnitRecord(editText.getText().toString());
+                List<Unit> unitsByClass = AllUnitsGetter
+                        .getUnitsByClass(unitRecord.getUnit()
+                                .getClass())
+                        .stream()
+                        .filter(a -> !a.equals(unitRecord.getUnit()))
+                        .collect(Collectors.toList());
+                conv1.setText(unitsByClass.get(0).getRoot());
+                conv1.setEnabled(true);
+                conv2.setText(unitsByClass.get(1).getRoot());
+                conv2.setEnabled(true);
+                conv3.setText(unitsByClass.get(2).getRoot());
+                conv3.setEnabled(true);
+            } catch (IllegalStringToParse illegalStringToParse) {
+                TextView viewById = findViewById(R.id.resultText);
+                viewById.setText(R.string.start_string);
+                conv1.setEnabled(false);
+                conv2.setEnabled(false);
+                conv3.setText();
+                conv3.setEnabled(false);
+            }
+        }
+        return true;
+    }
+
+
     void onClickConvertBtn(View btn) {
         StringParser instance = StringParser.getInstance();
         List<Unit> unitsByClass = AllUnitsGetter
@@ -90,12 +93,10 @@ public final class MainActivity extends AppCompatActivity {
                 .stream()
                 .filter(a -> !a.equals(instance.getUnit()))
                 .collect(Collectors.toList());
-        Unit unit = unitsByClass.get(Integer.parseInt(String.valueOf(btn.getTag())));
+        Unit unit = unitsByClass.get(Integer.parseInt(String.valueOf(btn.getTag())) - 1);
         try {
             double convertedValue = UnitConverter.getInstance()
-                    .setUnitFrom(instance.getUnit())
-                    .setUnitTo(unit)
-                    .convert(instance.getValue());
+                    .convert(unitRecord, unit);
             TextView viewById = findViewById(R.id.resultText);
             viewById.setText(String.valueOf(convertedValue));
         } catch (IllegalConvertException e) {
