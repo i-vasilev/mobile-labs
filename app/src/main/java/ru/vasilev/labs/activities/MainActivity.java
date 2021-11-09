@@ -58,6 +58,7 @@ public final class MainActivity extends AppCompatActivity {
             Button conv1 = findViewById(R.id.convert_1);
             Button conv2 = findViewById(R.id.convert_2);
             Button conv3 = findViewById(R.id.convert_3);
+            boolean isEnabled = true;
             try {
                 unitRecord = new UnitRecord(editText.getText().toString());
                 List<Unit> unitsByClass = AllUnitsGetter
@@ -67,21 +68,19 @@ public final class MainActivity extends AppCompatActivity {
                         .filter(a -> !a.equals(unitRecord.getUnit()))
                         .collect(Collectors.toList());
                 conv1.setText(unitsByClass.get(0).getRoot());
-                conv1.setEnabled(true);
                 conv2.setText(unitsByClass.get(1).getRoot());
-                conv2.setEnabled(true);
                 conv3.setText(unitsByClass.get(2).getRoot());
-                conv3.setEnabled(true);
             } catch (IllegalStringToParse illegalStringToParse) {
+                isEnabled = false;
                 TextView viewById = findViewById(R.id.resultText);
                 viewById.setText(R.string.start_string);
                 conv1.setText(getString(R.string.empty_value));
-                conv1.setEnabled(false);
                 conv2.setText(getString(R.string.empty_value));
-                conv2.setEnabled(false);
                 conv3.setText(getString(R.string.empty_value));
-                conv3.setEnabled(false);
             }
+            conv1.setEnabled(isEnabled);
+            conv2.setEnabled(isEnabled);
+            conv3.setEnabled(isEnabled);
         }
         return true;
     }
