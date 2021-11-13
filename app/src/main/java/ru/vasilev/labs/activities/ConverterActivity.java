@@ -1,9 +1,7 @@
 package ru.vasilev.labs.activities;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -14,35 +12,28 @@ import ru.vasilev.labs.exceptions.IllegalStringToParse;
 import ru.vasilev.labs.logger.Event;
 import ru.vasilev.labs.logger.EventLogger;
 import ru.vasilev.labs.logger.EventType;
-import ru.vasilev.labs.utils.parser.StringParser;
+import ru.vasilev.labs.utils.converter.parser.StringParser;
 
-public final class MainActivity extends AppCompatActivity {
+public final class ConverterActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_main);
+        this.setContentView(R.layout.activity_converter);
 
         EditText editValue = findViewById(R.id.editTextValue);
-        editValue.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+        editValue.setOnEditorActionListener((view, actionId, event) -> {
+            int result = actionId & EditorInfo.IME_MASK_ACTION;
+            switch (result) {
+                case EditorInfo.IME_ACTION_DONE:
+                    try {
+                        StringParser instance = StringParser.getInstance();
+                        instance.setStringToParse(view.getText().toString());
+                        EventLogger.print();
+                    } catch (IllegalStringToParse illegalStringToParse) {
+                    }
+                    break;
             }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                try {
-                    StringParser instance = StringParser.getInstance();
-                    instance.setStringToParse(charSequence.toString());
-                } catch (IllegalStringToParse illegalStringToParse) {
-                }
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
+            return true;
         });
 
         EventLogger.Companion.add(new Event(EventType.ON_CREATE, "onCreate"));

@@ -1,4 +1,4 @@
-package ru.vasilev.labs.utils.parser;
+package ru.vasilev.labs.utils.converter.parser;
 
 import java.util.List;
 
