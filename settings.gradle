@@ -1,2 +1,4 @@
 include ':app'
 rootProject.name = "My Application"
+include ':piri-annotation'
+include ':piri-processor'
