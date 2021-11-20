@@ -1,14 +1,10 @@
 package ru.vasilev.labs.activities;
 
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,16 +22,16 @@ import ru.vasilev.labs.logger.EventType;
 import ru.vasilev.labs.utils.converter.AllUnitsGetter;
 import ru.vasilev.labs.utils.converter.UnitConverter;
 import ru.vasilev.labs.utils.converter.UnitRecord;
+import ru.vasilev.labs.utils.converter.parser.StringParser;
 import ru.vasilev.labs.utils.converter.units.Unit;
-import ru.vasilev.labs.utils.parser.StringParser;
 
-public final class MainActivity extends AppCompatActivity {
+public final class ConverterActivity extends AppCompatActivity {
 
     private UnitRecord unitRecord;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.activity_main);
+        this.setContentView(R.layout.activity_converter);
 
         EditText editValue = findViewById(R.id.editTextValue);
         Button conv1 = findViewById(R.id.convert_1);
