@@ -1,5 +1,10 @@
 package ru.vasilev.labs.utils.calculator;
 
+import android.annotation.SuppressLint;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -43,5 +48,25 @@ public class CalculatorExecutor {
 
     private int getMinOperationPriority() {
         return operations.stream().min(Comparator.comparingInt(Operation::getPriority)).get().getPriority();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    @SuppressLint("DefaultLocale")
+    @Override
+    public String toString() {
+        List<String> expression = new ArrayList<>();
+        int numIndex = 0;
+        if (numbers.size() > 0) {
+            for (Operation operation :
+                    operations) {
+                Double num = numbers.get(numIndex++);
+                expression.add(num > 0 ? String.valueOf(num.intValue()) : String.format("(%d)", num.intValue()));
+                expression.add(operation.getSignOperation());
+            }
+            if (numIndex < numbers.size()) {
+                expression.add(String.valueOf(numbers.get(numIndex).intValue()));
+            }
+        }
+        return String.join("", expression);
     }
 }

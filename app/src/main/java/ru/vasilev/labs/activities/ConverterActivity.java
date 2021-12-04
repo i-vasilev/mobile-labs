@@ -16,9 +16,9 @@ import java.util.stream.Collectors;
 import ru.vasilev.labs.R;
 import ru.vasilev.labs.exceptions.IllegalConvertException;
 import ru.vasilev.labs.exceptions.IllegalStringToParse;
-import ru.vasilev.labs.logger.Event;
-import ru.vasilev.labs.logger.EventLogger;
-import ru.vasilev.labs.logger.EventType;
+//import ru.vasilev.labs.logger.Event;
+//import ru.vasilev.labs.logger.EventLogger;
+//import ru.vasilev.labs.logger.EventType;
 import ru.vasilev.labs.utils.converter.AllUnitsGetter;
 import ru.vasilev.labs.utils.converter.UnitConverter;
 import ru.vasilev.labs.utils.converter.UnitRecord;
@@ -43,8 +43,8 @@ public final class ConverterActivity extends AppCompatActivity {
         conv2.setOnClickListener(this::onClickConvertBtn);
         conv3.setOnClickListener(this::onClickConvertBtn);
 
-        EventLogger.Companion.add(new Event(EventType.ON_CREATE, "onCreate"));
-        EventLogger.Companion.print();
+//        EventLogger.Companion.add(new Event(EventType.ON_CREATE, "onCreate"));
+//        EventLogger.Companion.print();
     }
 
     private boolean keyTextListener(View view, int keyCode, KeyEvent keyEvent) {
@@ -99,62 +99,5 @@ public final class ConverterActivity extends AppCompatActivity {
         } catch (IllegalConvertException e) {
             e.printStackTrace();
         }
-    }
-
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        EventLogger.Companion.add(new Event(EventType.ON_RESTORE_INSTANCE_STATE, "onRestoreInstanceState"));
-        EventLogger.Companion.print();
-    }
-
-    protected void onRestart() {
-        super.onRestart();
-
-        EventLogger.Companion.add(new Event(EventType.ON_RESTART, "onRestart"));
-        EventLogger.Companion.print();
-    }
-
-    protected void onStart() {
-        super.onStart();
-
-        EventLogger.Companion.add(new Event(EventType.ON_START, "onStart"));
-        EventLogger.Companion.print();
-    }
-
-    protected void onResume() {
-        super.onResume();
-
-        EventLogger.Companion.add(new Event(EventType.ON_RESUME, "onResume"));
-        EventLogger.Companion.print();
-    }
-
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        EventLogger.Companion.add(new Event(EventType.ON_SAVE_INSTANCE_STATE, "onSaveInstanceState"));
-        EventLogger.Companion.print();
-    }
-
-    protected void onPause() {
-        super.onPause();
-
-        EventLogger.Companion.add(new Event(EventType.ON_PAUSE, "onPause"));
-        EventLogger.Companion.print();
-    }
-
-    protected void onStop() {
-        super.onStop();
-
-        EventLogger.Companion.add(new Event(EventType.ON_STOP, "onStop"));
-        EventLogger.Companion.print();
-    }
-
-    protected void onDestroy() {
-        super.onDestroy();
-
-        EventLogger.Companion.add(new Event(EventType.ON_DESTROY, "onDestroy"));
-        EventLogger.Companion.print();
-        EventLogger.Companion.clear();
     }
 }

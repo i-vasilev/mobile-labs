@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:gravity="end|bottom"
-        android:text="842+685"
         android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/tableButtons" />
 

@@ -3,8 +3,8 @@ package ru.vasilev.labs.utils.converter;
 import android.text.Editable;
 
 import ru.vasilev.labs.exceptions.IllegalStringToParse;
+import ru.vasilev.labs.utils.converter.parser.StringParser;
 import ru.vasilev.labs.utils.converter.units.Unit;
-import ru.vasilev.labs.utils.parser.StringParser;
 
 public class UnitRecord<T extends Unit> {
     private Unit unit;
