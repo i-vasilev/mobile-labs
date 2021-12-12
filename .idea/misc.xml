@@ -4,6 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Admin/AndroidStudioProjects/labs/app/src/main/res/layout/activity_calculator.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/labs/app/src/main/res/layout/activity_forms.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/labs/app/src/main/res/layout/activity_list_forms.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/labs/app/src/main/res/layout/activity_new_form.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/labs/app/src/main/res/layout/activity_start.xml" value="0.2015625" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/labs/app/src/main/res/layout/activity_statistics.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/labs/app/src/main/res/layout/form_name.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Admin/AndroidStudioProjects/labs/app/src/main/res/layout/forms_activity.xml" value="0.2015625" />
       </map>
     </option>
   </component>

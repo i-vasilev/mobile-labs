@@ -16,15 +16,23 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         findViewById(R.id.buttonConverter).setOnClickListener(this::openConverter);
         findViewById(R.id.buttonCalculator).setOnClickListener(this::openCalculator);
+        findViewById(R.id.buttonForms).setOnClickListener(this::openForms);
+    }
+
+    private void openForms(View view) {
+        startActivity(FormsActivity.class);
     }
 
     private void openCalculator(View view) {
-        Intent intentCalculator = new Intent(getApplicationContext(), CalculatorActivity.class);
-        startActivity(intentCalculator);
+        startActivity(CalculatorActivity.class);
     }
 
     private void openConverter(View view) {
-        Intent intentConverter = new Intent(getApplicationContext(), ConverterActivity.class);
+        startActivity(ConverterActivity.class);
+    }
+
+    private void startActivity(Class<?> activityClass) {
+        Intent intentConverter = new Intent(getApplicationContext(), activityClass);
         startActivity(intentConverter);
     }
 }

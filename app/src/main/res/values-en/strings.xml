@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="formsName">Forms</string>
+    <string name="listForms">List of forms</string>
+    <string name="forms">Applicants\' questionnaires</string>
+    <string name="newQuestionnaire">New questionnaire</string>
+    <string name="listQuestionnaires">List questionnaires</string>
+    <string name="statistic">Statistic</string>
+    <string name="totalCountQuestionnaires">There are %d questionnaires in total in database</string>
+    <string name="education">Education level:</string>
+    <string name="expectedBranchOfWork">Expected branch of work:</string>
+    <string name="experience">Experience:</string>
+    <string name="expectedPay">Expected pays:</string>
+    <string name="noPhysicalRestrictions">There are no physical restrictions</string>
+    <string name="hasPhysicalRestrictions">There are physical restrictions</string>
+    <string name="noCriminal">No criminal</string>
+    <string name="hasCriminal">Has criminal</string>
+    <string name="additionalInformation">Additional information:</string>
+    <string name="government">Government organizations</string>
+    <string name="extractive">Extractive</string>
+    <string name="it">Information technologies</string>
+    <string name="services">Services</string>
+    <string name="incompleteSecondary">Incomplete secondary</string>
+    <string name="secondary">Secondary</string>
+    <string name="high">High</string>
+    <string name="back">Back</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="totalCountForms">Total count questionnaries in database: %d.</string>
+    <string name="mostCommonEducation">Most common education: %s.</string>
+    <string name="mostCommonIndustry">The most common industry: %s.</string>
+    <string name="mostCommonExperience">The most common experience: %s.</string>
+    <string name="noExperience">Haven\'t experience.</string>
+    <string name="from1To3Years">From 1 up to 3 years</string>
+    <string name="from3To6Years">From 3 up to 6 years</string>
+    <string name="from6Years">More than 6 years</string>
+    <string name="averagePay">Average pay level: %d.</string>
+    <string name="fullTime">Full time</string>
+    <string name="partTime">Part time</string>
+    <string name="oneTime">One time</string>
+    <string name="internship">Internship</string>
+    <string name="expectedEmployment">The most expected type of employment: %s.</string>
+</resources>
