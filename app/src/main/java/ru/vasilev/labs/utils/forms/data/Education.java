@@ -2,7 +2,7 @@ package ru.vasilev.labs.utils.forms.data;
 
 import ru.vasilev.labs.R;
 
-public enum Education {
+public enum Education implements Idable {
     INCOMPLETE_SECONDARY(R.string.incompleteSecondary),
     SECONDARY(R.string.secondary),
     HIGH(R.string.high);
@@ -12,6 +12,7 @@ public enum Education {
         this.id = id;
     }
 
+    @Override
     public int getId() {
         return id;
     }

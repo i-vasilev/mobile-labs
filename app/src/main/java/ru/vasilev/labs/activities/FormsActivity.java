@@ -27,6 +27,12 @@ public class FormsActivity extends AppCompatActivity {
 
         findViewById(R.id.listFormsBtn).setOnClickListener(this::openListForms);
         findViewById(R.id.statisticBtn).setOnClickListener(this::openStat);
+        findViewById(R.id.newFormBtn).setOnClickListener(this::openNewForm);
+    }
+
+    private void openNewForm(View view) {
+        Intent intent = new Intent(getApplicationContext(), NewFormActivity.class);
+        startActivity(intent);
     }
 
     private void openStat(View view) {

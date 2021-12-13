@@ -49,6 +49,15 @@
     <string name="oneTime">Разовая работа</string>
     <string name="internship">Стажировка</string>
     <string name="expectedEmployment">Наиболее ожидаемый тип занятости: %s.</string>
+    <string name="fio">Ф.И.О.</string>
+    <string name="family_name">Фамилия</string>
+    <string name="first_name">Имя</string>
+    <string name="second_name">Отчество</string>
+    <string name="industry">Отрасль</string>
+    <string name="expectedPayLevel">Желаемый уровень зарплаты</string>
+    <string name="typeEmployment">Тип желаемой занятости</string>
+    <string name="additionalInfoHint">Укажите здесь дополнительную информацию</string>
+    <string name="aggreementAndConfirmation">Я подтверждаю подлинность  предоставленной информации  и даю согласие на обработку персональных данных</string>
     <!-- Strings used for fragments for navigation -->
 
 

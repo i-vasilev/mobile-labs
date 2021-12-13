@@ -2,7 +2,7 @@ package ru.vasilev.labs.utils.forms.data;
 
 import ru.vasilev.labs.R;
 
-public enum Industry {
+public enum Industry implements Idable {
     GOVERNMENT(R.string.government),
     EXTRACTIVE(R.string.extractive),
     IT(R.string.it),

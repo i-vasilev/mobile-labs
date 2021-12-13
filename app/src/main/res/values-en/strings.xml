@@ -40,4 +40,13 @@
     <string name="oneTime">One time</string>
     <string name="internship">Internship</string>
     <string name="expectedEmployment">The most expected type of employment: %s.</string>
+    <string name="fio">Full name</string>
+    <string name="family_name">Family name</string>
+    <string name="first_name">First name</string>
+    <string name="second_name">Second name</string>
+    <string name="industry">Industry</string>
+    <string name="expectedPayLevel">Expected pay level</string>
+    <string name="typeEmployment">Expected employment type</string>
+    <string name="additionalInfoHint">Write additional information here</string>
+    <string name="aggreementAndConfirmation">I confirm the authenticity of the information provided and consent to the processing of personal data</string>
 </resources>
