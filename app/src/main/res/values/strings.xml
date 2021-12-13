@@ -1,13 +1,55 @@
 <resources>
-    <string name="app_name">Лабораторные работы</string>
-    <string name="empty_value">...</string>
-    <string name="start_string">Данный конвертер позволяет работать только со следующими единицами измерениями:\n
+    <string name="app_name" translatable="false">Лабораторные работы</string>
+    <string name="empty_value" translatable="false">...</string>
+    <string name="start_string" translatable="false">Данный конвертер позволяет работать только со следующими единицами измерениями:\n
         Длина: метры, дюймы, футы, ярды\n
         Масса: киллограмм, фунт, унция, стон\n
         Объем: литр, галлон, кварта, пинта</string>
-    <string name="converterBtn">Конвертер</string>
-    <string name="calculatorBtn">Калькулятор</string>
-    <string name="clrBtn">CLR</string>
-    <string name="delBtn">DEL</string>
+    <string name="converterBtn" translatable="false">Конвертер</string>
+    <string name="calculatorBtn" translatable="false">Калькулятор</string>
+    <string name="clrBtn" translatable="false">CLR</string>
+    <string name="delBtn" translatable="false">DEL</string>
+    <string name="formsName">Анкеты</string>
+    <string name="listForms">Список анкет</string>
+    <string name="forms">Анкеты соискателей</string>
+    <string name="newQuestionnaire">Новая анкета</string>
+    <string name="listQuestionnaires">Список анкет</string>
+    <string name="statistic">Статистика</string>
+    <string name="totalCountQuestionnaires">Всего в базе %d анкет</string>
+    <string name="education">Образование:</string>
+    <string name="expectedBranchOfWork">Ожидаемая отрасль работы:</string>
+    <string name="experience">Опыт работы:</string>
+    <string name="expectedPay">Ожидаемый уровень зп:</string>
+    <string name="noPhysicalRestrictions">Нет физических ограничений</string>
+    <string name="hasPhysicalRestrictions">Есть физические ограничения</string>
+    <string name="noCriminal">Нет судимости</string>
+    <string name="hasCriminal">Есть судимость</string>
+    <string name="additionalInformation">Дополнительная информация:</string>
+    <string name="government">Государственные организации</string>
+    <string name="extractive">Добывающая отрасль</string>
+    <string name="it">Информационные технологии</string>
+    <string name="services">Услуги</string>
+    <string name="incompleteSecondary">Неполное среднее</string>
+    <string name="secondary">Среднее</string>
+    <string name="high">Высшее</string>
+    <string name="back">Назад</string>
+    <string name="edit">Редактировать</string>
+    <string name="delete">Удалить</string>
+    <string name="totalCountForms">Всего в базе анкет: %d.</string>
+    <string name="mostCommonEducation">Чаще всего соискатели имеют образование: %s.</string>
+    <string name="mostCommonIndustry">Самая востребованная отрасль: %s.</string>
+    <string name="mostCommonExperience">Чаще всего встречающийся опыт: %s.</string>
+    <string name="noExperience">Нет опыта</string>
+    <string name="from1To3Years">От 1 до 3 лет</string>
+    <string name="from3To6Years">От 3 до 6 лет</string>
+    <string name="from6Years">Более 6 лет</string>
+    <string name="averagePay">Средний ожидаемый уровень заработной платы: %d.</string>
+    <string name="fullTime">Полная занятость</string>
+    <string name="partTime">Частичная занятость</string>
+    <string name="oneTime">Разовая работа</string>
+    <string name="internship">Стажировка</string>
+    <string name="expectedEmployment">Наиболее ожидаемый тип занятости: %s.</string>
+    <!-- Strings used for fragments for navigation -->
+
 
 </resources>

@@ -1,0 +1,13 @@
+{
+  "familyName": "Иванов",
+  "firstName": "Иван",
+  "secondName": "Иванович",
+  "education": "HIGH",
+  "industry": "GOVERNMENT",
+  "experience": "FROM6",
+  "desiredPay": "70000",
+  "isFullTime": true,
+  "hasPhysicalLimitations": false,
+  "hasCriminalRecord": false,
+  "hasConfirmation": true
+}
