@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import ru.vasilev.labs.utils.calculator.exceptions.IllegalOperationAttributesCount;
 import ru.vasilev.labs.utils.calculator.operations.Operation;
 import ru.vasilev.labs.utils.calculator.operations.Operations;
 
@@ -26,22 +27,26 @@ public class CalculatorExecutor {
 
     public double calculate() {
         Operation oper;
-        while (operations.size() > 0) {
-            oper = operations.stream().filter(op -> op.getPriority() == getMinOperationPriority()).findFirst().orElse(null);
-            int i = operations.indexOf(oper);
-            if (oper.getCountAttributes() == 1) {
-                oper.addAttribute(numbers.get(i));
-                numbers.set(i, oper.execute());
-            } else {
-                for (int j = i; j < i + oper.getCountAttributes(); j++) {
-                    oper.addAttribute(numbers.get(j));
+        try {
+            while (operations.size() > 0) {
+                oper = operations.stream().filter(op -> op.getPriority() == getMinOperationPriority()).findFirst().orElse(null);
+                int i = operations.indexOf(oper);
+                if (oper.getCountAttributes() == 1) {
+                    oper.addAttribute(numbers.get(i));
+                    numbers.set(i, oper.doOperation());
+                } else {
+                    for (int j = i; j < i + oper.getCountAttributes(); j++) {
+                        oper.addAttribute(numbers.get(j));
+                    }
+                    numbers.set(i, oper.doOperation());
+                    for (int j = i + 1; j < i + oper.getCountAttributes(); j++) {
+                        numbers.remove(j);
+                    }
                 }
-                numbers.set(i, oper.execute());
-                for (int j = i + 1; j < i + oper.getCountAttributes(); j++) {
-                    numbers.remove(j);
-                }
+                operations.remove(i);
             }
-            operations.remove(i);
+        } catch (IllegalOperationAttributesCount illegalOperationAttributesCount) {
+            illegalOperationAttributesCount.printStackTrace();
         }
         return numbers.get(0);
     }
@@ -64,9 +69,14 @@ public class CalculatorExecutor {
                 expression.add(operation.getSignOperation());
             }
             if (numIndex < numbers.size()) {
-                expression.add(String.valueOf(numbers.get(numIndex).intValue()));
+                int num = numbers.get(numIndex).intValue();
+                expression.add(num > 0 ? String.valueOf(num) : String.format("(%d)", num));
             }
         }
         return String.join("", expression);
+    }
+
+    public void removeOperation() {
+        if (operations.size() > 0) operations.remove(operations.size() - 1);
     }
 }

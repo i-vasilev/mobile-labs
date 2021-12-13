@@ -50,7 +50,11 @@ public class CalculatorActivity extends AppCompatActivity {
     }
 
     private void clickButtonDeleteCalculator(View view) {
-        number.setLength(number.length() - 1);
+        if (number.length() > 0) {
+            number.setLength(number.length() - 1);
+        } else {
+            executor.removeOperation();
+        }
         updateExpressionText();
     }
 
@@ -61,20 +65,23 @@ public class CalculatorActivity extends AppCompatActivity {
     }
 
     private void clickButtonEqualsCalculator(View view) {
-        try {
-            executor.addNumber(Double.parseDouble(String.valueOf(number)));
-        } catch (Exception ignore) {
-            //ignore
-        }
-        number = new StringBuilder();
-        TextView editText = findViewById(R.id.mainTextEdit);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            Double result = executor.calculate();
-            editText.setText(
-                    String.format(
-                            "%s=%." + (String.valueOf(result % 1).length() - 3) + "f",
-                            executor.toString(),
-                            result));
+        if (!isOperationClicked) {
+            try {
+                executor.addNumber(Double.parseDouble(String.valueOf(number)));
+            } catch (Exception ignore) {
+                //ignore
+            }
+            number = new StringBuilder();
+            TextView editText = findViewById(R.id.mainTextEdit);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                String stringExpression = executor.toString();
+                Double result = executor.calculate();
+                editText.setText(
+                        String.format(
+                                "%s=%." + (String.valueOf(result % 1).length() - 3) + "f",
+                                stringExpression,
+                                result));
+            }
         }
     }
 
@@ -93,7 +100,7 @@ public class CalculatorActivity extends AppCompatActivity {
 
     private void clickButtonOperationCalculator(View view) {
         if (!isOperationClicked) {
-            executor.addNumber(Double.parseDouble(String.valueOf(number)));
+            if (!number.toString().equals("")) executor.addNumber(Double.parseDouble(String.valueOf(number)));
             number = new StringBuilder();
             executor.addOperation((String) view.getTag());
             updateExpressionText();
