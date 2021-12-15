@@ -2,8 +2,6 @@ package ru.vasilev.labs.utils.forms.data;
 
 import java.io.Serializable;
 
-import ru.vasilev.labs.R;
-
 public class Form implements Serializable {
     private String familyName;
     private String firstName;
@@ -23,8 +21,6 @@ public class Form implements Serializable {
     private boolean hasCriminalRecord;
 
     private String additionalInformation;
-
-    private boolean hasConfirmation;
 
     @Override
     public String toString() {
@@ -89,7 +85,60 @@ public class Form implements Serializable {
         return additionalInformation;
     }
 
-    public boolean isHasConfirmation() {
-        return hasConfirmation;
+    public void setFamilyName(String familyName) {
+        this.familyName = familyName;
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setSecondName(String secondName) {
+        this.secondName = secondName;
+    }
+
+    public void setEducation(Education education) {
+        this.education = education;
+    }
+
+    public void setIndustry(Industry industry) {
+        this.industry = industry;
+    }
+
+    public void setExperience(Experience experience) {
+        this.experience = experience;
+    }
+
+    public void setDesiredPay(int desiredPay) {
+        this.desiredPay = desiredPay;
+    }
+
+    public void setFullTime(boolean fullTime) {
+        isFullTime = fullTime;
+    }
+
+    public void setPartTime(boolean partTime) {
+        isPartTime = partTime;
+    }
+
+    public void setInternship(boolean internship) {
+        isInternship = internship;
+    }
+
+    public void setOnetime(boolean onetime) {
+        isOnetime = onetime;
+    }
+
+    public void setHasPhysicalLimitations(boolean hasPhysicalLimitations) {
+        this.hasPhysicalLimitations = hasPhysicalLimitations;
+    }
+
+    public void setHasCriminalRecord(boolean hasCriminalRecord) {
+        this.hasCriminalRecord = hasCriminalRecord;
+    }
+
+    public void setAdditionalInformation(String additionalInformation) {
+        this.additionalInformation = additionalInformation;
+    }
+
 }

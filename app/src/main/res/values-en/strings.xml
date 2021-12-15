@@ -49,4 +49,6 @@
     <string name="typeEmployment">Expected employment type</string>
     <string name="additionalInfoHint">Write additional information here</string>
     <string name="aggreementAndConfirmation">I confirm the authenticity of the information provided and consent to the processing of personal data</string>
+    <string name="newQuestionariee">New questionarie</string>
+    <string name="saveBtn">Save</string>
 </resources>

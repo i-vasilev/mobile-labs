@@ -54,10 +54,12 @@
     <string name="first_name">Имя</string>
     <string name="second_name">Отчество</string>
     <string name="industry">Отрасль</string>
-    <string name="expectedPayLevel">Желаемый уровень зарплаты</string>
-    <string name="typeEmployment">Тип желаемой занятости</string>
+    <string name="expectedPayLevel">Желаемый уровень зарплаты:</string>
+    <string name="typeEmployment">Тип желаемой занятости:</string>
     <string name="additionalInfoHint">Укажите здесь дополнительную информацию</string>
     <string name="aggreementAndConfirmation">Я подтверждаю подлинность  предоставленной информации  и даю согласие на обработку персональных данных</string>
+    <string name="newQuestionariee">Новая анкета</string>
+    <string name="saveBtn">Сохранить</string>
     <!-- Strings used for fragments for navigation -->
 
 
